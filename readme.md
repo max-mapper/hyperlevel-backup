@@ -14,16 +14,16 @@ var hlc = require('hyperlevel-backup')
 
 ##API
 
-### `hlb.pack(opts, cb)`
+### `hlb(hyper, opts, httpResponse)`
 
-creates a snapshot of a hyperleveldb instance, and then calls `cb` with a readable stream of the gzipped contents of the files in the snapshot
+function for mounting this module in an http API. creates a snapshot of a hyperleveldb instance, and then streams a tar.gz of the files to the `httpResponse`
 
 `opts` must have at least these keys:
 
 ```
 {
   hyper: hyperleveldbInstance,
-  dbFolder: pathToHyperleveldbFolder
+  dir: pathToHyperleveldbFolder
 }
 ```
 
@@ -36,21 +36,6 @@ and can optionally also have:
   cleanup: boolean // default true, if false snapshot won't be removed after replication
 }
 ```
-
-### `hlb.unpack(target, cb)`
-
-returns a writable stream that ungzips and unpacks data into `target`. calls optional `cb` when done with `(err)`
-
-
-### `hlb.serve(hyper, dbFolder, httpResponse)`
-
-function for mounting this module in an http API. streams `hlb.pack` to the `httpResponse`
-
-### `hlb.clone(remoteURL, options, cb)`
-
-makes HTTP request to `remoteURL` (which should be `hlb.serve` and/or the .tar.gz of a `hlb.pack`) and unpacks into `options.path`. default path is `process.cwd()`
-
-you can also specify `options.showProgress` as either `true` or `false` (default is `false`) if you want to print progress messages to stdout
 
 ## license
 
