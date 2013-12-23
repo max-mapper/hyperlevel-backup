@@ -1,6 +1,6 @@
 {
   "name": "hyperlevel-backup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "replicate a hyperleveldb, taking advantage of the liveBackup function",
   "keywords": [
     "leveldb",
@@ -13,7 +13,7 @@
   "author": "max ogden",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "folder-backup": "~0.0.1"
+    "folder-backup": "~0.0.2"
   },
   "repository": {
     "type": "git",
