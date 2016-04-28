@@ -9,11 +9,13 @@
     "backup",
     "snapshot"
   ],
+  "scripts": {
+    "test": "tape test.js"
+  },
   "main": "index.js",
   "author": "max ogden",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "folder-backup": "~0.0.2"
     "folder-backup": "~0.0.2",
     "rimraf": "^2.5.2"
   },
@@ -24,5 +26,11 @@
   "bugs": {
     "url": "https://github.com/maxogden/hyperlevel-backup/issues"
   },
-  "homepage": "https://github.com/maxogden/hyperlevel-backup"
+  "homepage": "https://github.com/maxogden/hyperlevel-backup",
+  "devDependencies": {
+    "after": "^0.8.1",
+    "level-hyper": "^1.2.1",
+    "tape": "^4.5.1",
+    "tar": "^2.2.1"
+  }
 }
