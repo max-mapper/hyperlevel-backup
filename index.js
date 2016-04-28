@@ -9,8 +9,8 @@ function noop() {}
 function serve(hyper, opts, httpResponse) {
   if (!opts) opts = {}
   if (!opts.onCleanup) opts.onCleanup = noop
-  if (!opts.dir) opts.dir = process.cwd()
   if (!opts.backupName) opts.backupName = Date.now().toString()
+  if (!opts.dir) opts.dir = hyper.location
   if (Object.keys(opts).indexOf('cleanup') === -1) opts.cleanup = true
   var backupPath = path.join(opts.dir, 'backup-' + opts.backupName)
   hyper.liveBackup(opts.backupName, function(err) {
